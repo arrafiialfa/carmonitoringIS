@@ -16,13 +16,10 @@ class Approval extends Model
         'note',
     ];
 
-    public function booking()
-    {
-        return $this->belongsTo(Booking::class);
-    }
 
-    public function approved_by()
+
+    public function nextApproval()
     {
-        return $this->hasOne(User::class, 'user_id', 'approved_by');
+        return $this->hasOne(Approval::class, 'approval_id', 'next_approval');
     }
 }
