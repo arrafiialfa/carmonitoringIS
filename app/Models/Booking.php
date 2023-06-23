@@ -29,8 +29,9 @@ class Booking extends Model
         return $this->hasOne(Driver::class);
     }
 
-    public function approvals()
+    //many to many relationship
+    public function user()
     {
-        return $this->hasMany(Approval::class);
+        return $this->belongsToMany(User::class, 'approvals');
     }
 }

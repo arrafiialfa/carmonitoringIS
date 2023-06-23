@@ -56,9 +56,10 @@ class User extends Authenticatable
         return $this->hasMany(User::class, 'user_id', 'subordinates');
     }
 
-    public function approval()
+    //many to many relationship
+    public function bookings()
     {
-        return $this->belongsTo(Approval::class, 'user_id', 'approved_by');
+        return $this->belongsToMany(Booking::class, 'approvals', 'user_id', 'approved_by');
     }
 
     public function processLog()
