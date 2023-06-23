@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="13.96" multi-file="no" uid="simpb5aeeaf24efd46dda813d1219069ef91">
+  <meta>
+    <name>modelling</name>
+    <authors>Arafii Alfa</authors>
+    <description />
+  </meta>
+  <counters models="1">
+    <entity-names>
+      <counter>
+        <item-type type-id="erd-chen-entity" type="Entity" />
+        <value>11</value>
+      </counter>
+      <counter>
+        <item-type type-id="erd-chen-relationship" type="Relationship" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="erd-chen-attribute" type="Attribute" />
+        <value>1</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="erd-chen-entity" type="Entity" />
+        <value>12</value>
+      </counter>
+      <counter>
+        <item-type type-id="erd-chen-relationship" type="Relationship" />
+        <value>4</value>
+      </counter>
+      <counter>
+        <item-type type-id="erd-chen-participation" type="Participation" />
+        <value>11</value>
+      </counter>
+      <counter>
+        <item-type type-id="comment" type="Comment" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="comment-connector" type="Comment Connector" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="erd-chen-attribute" type="Attribute" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="erd-chen-attribute-connector" type="Attribute Connector" />
+        <value>2</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.Other.ChenEntityRelationshipDiagram</type>
+        <value>1</value>
+      </counter>
+    </diagrams>
+    <fields />
+  </counters>
+  <alias-groups />
+  <management uid="md-9b703986644b46f3b0e83984291471fa" name="" task-id-sequence="0">
+    <persons>
+      <person id="">
+        <first-name>Arafii</first-name>
+        <last-name>Alfa</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-6975032fc6aa405794c3eade616f6155" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types>
+      <parameters />
+      <types />
+    </custom-types>
+  </types>
+  <items>
+    <item id="66b64849fd60481fb1aab608559715b8" cid="ENT009" type="erd-chen-entity" name="Approvals" creator="" creation-date="06/23/2023 16:47:48">
+      <erd-chen-entity type="standard" />
+    </item>
+    <item id="7baba6456b244a108da811bc6e902439" cid="PAR008" type="erd-chen-participation" creator="" creation-date="06/23/2023 16:48:35" from="66b64849fd60481fb1aab608559715b8" to="e2899491241e493587b5dc0899a867de">
+      <erd-chen-participation type="mandatory" multiplicity="m,1" />
+    </item>
+    <item id="9a01a22f52dc48bcbe010edee054f41d" cid="PAR007" type="erd-chen-participation" creator="" creation-date="06/23/2023 16:47:48" from="390d561c65144af185fae26e74387a03" to="66b64849fd60481fb1aab608559715b8">
+      <erd-chen-participation type="mandatory" multiplicity="1, m" />
+    </item>
+    <item id="e2899491241e493587b5dc0899a867de" cid="ENT010" type="erd-chen-entity" name="user as manager" creator="" creation-date="06/23/2023 16:48:42">
+      <erd-chen-entity type="standard" />
+    </item>
+  </items>
+  <models>
+    <model id="pdfbccef0ae634060b7cf230438ff0d0e_479618522" name="Model1" namespace="" order-index="1">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>06/23/2023 16:07:38</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="chen-entity-relationship" id="pe8c6d82b22084caf818ef6be89b286e5_400162903" name="ChenERDiagram1" order-index="1" uid="" auto-routed-paths="false" default-line-style="default" view-location="270,-358" zoom="0.8">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>06/23/2023 16:07:38</creation-date>
+          <change-date>06/23/2023 16:51:09</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="85ab7e4c157e47ff9c629addfb8b6f8a" cid="PAR005" type="erd-chen-participation" creator="" creation-date="06/23/2023 16:47:15" from="5cf9a99775094856ade59c31dc5451a3" to="390d561c65144af185fae26e74387a03">
+            <erd-chen-participation type="mandatory" multiplicity="1,1" />
+          </item>
+          <item id="5cf9a99775094856ade59c31dc5451a3" cid="ENT005" type="erd-chen-entity" name="Driver" creator="" creation-date="06/23/2023 16:45:05">
+            <erd-chen-entity type="standard" />
+          </item>
+          <item id="390d561c65144af185fae26e74387a03" cid="ENT007" type="erd-chen-entity" name="Booking" creator="" creation-date="06/23/2023 16:45:24">
+            <erd-chen-entity type="standard" />
+          </item>
+          <item id="5136811c9c4f40cd97950159c6172523" cid="ENT011" type="erd-chen-entity" name="process log" creator="" creation-date="06/23/2023 16:50:48">
+            <erd-chen-entity type="standard" />
+          </item>
+          <item id="8966a94266654d4c8269a7ce3c07f2eb" cid="PAR006" type="erd-chen-participation" creator="" creation-date="06/23/2023 16:47:18" from="1977678dac2443a5b2dc05647386f78e" to="390d561c65144af185fae26e74387a03">
+            <erd-chen-participation type="mandatory" multiplicity="1,1" />
+          </item>
+          <item id="1977678dac2443a5b2dc05647386f78e" cid="ENT006" type="erd-chen-entity" name="Vehicle" creator="" creation-date="06/23/2023 16:45:16">
+            <erd-chen-entity type="standard" />
+          </item>
+          <item id="e2bdd302b51d44f68b73885be5496786" cid="PAR010" type="erd-chen-participation" creator="" creation-date="06/23/2023 16:50:54" from="e2899491241e493587b5dc0899a867de" to="5136811c9c4f40cd97950159c6172523">
+            <erd-chen-participation type="mandatory" multiplicity="1,n" />
+          </item>
+        </abstract-items>
+        <layer id="d5a90d83565348ca988ff785981b39eb" name="Default" visible="true" enabled="true" locked="false">
+          <item id="5cf9a99775094856ade59c31dc5451a3" iid="0871a3238b744342be633dff119c8cad" creation-date="06/23/2023 16:45:05" order-index="6" type="entity">
+            <layout ax="272" ay="-62" awidth="120" aheight="70" x="272" y="-62" width="120" height="70" />
+          </item>
+          <item id="1977678dac2443a5b2dc05647386f78e" iid="1b7fa50d5cd9431695f75a2a7f8e1872" creation-date="06/23/2023 16:45:16" order-index="7" type="entity">
+            <layout ax="272" ay="223" awidth="120" aheight="70" x="272" y="223" width="120" height="70" />
+          </item>
+          <item id="390d561c65144af185fae26e74387a03" iid="b21d3b102ed3445587404009ab5c6f06" creation-date="06/23/2023 16:45:24" order-index="8" type="entity">
+            <layout ax="272" ay="88" awidth="120" aheight="70" x="272" y="88" width="120" height="70" />
+          </item>
+          <item id="85ab7e4c157e47ff9c629addfb8b6f8a" iid="9aea31c2ec2244bab4945c89c9dda04e" creation-date="06/23/2023 16:47:15" order-index="13" type="relation">
+            <layout multiplicity-position="10,-10" line-style="oblique" lock-to-fields="false" auto-path="" x1="332" y1="8" x2="332" y2="88" start-border-pos="0.625" end-border-pos="0.125" name-position="0,20">
+              <points>
+                <point x="332" y="8" />
+                <point x="332" y="88" />
+              </points>
+            </layout>
+            <relation from="5cf9a99775094856ade59c31dc5451a3" from-iid="0871a3238b744342be633dff119c8cad" to="390d561c65144af185fae26e74387a03" to-iid="b21d3b102ed3445587404009ab5c6f06" />
+          </item>
+          <item id="8966a94266654d4c8269a7ce3c07f2eb" iid="e7f6b471f9ff49cea508ce17a4081508" creation-date="06/23/2023 16:47:18" order-index="14" type="relation">
+            <layout multiplicity-position="10,-10" line-style="oblique" lock-to-fields="false" auto-path="" x1="332" y1="223" x2="332" y2="158" start-border-pos="0.125" end-border-pos="0.625" name-position="0,20">
+              <points>
+                <point x="332" y="223" />
+                <point x="332" y="158" />
+              </points>
+            </layout>
+            <relation from="1977678dac2443a5b2dc05647386f78e" from-iid="1b7fa50d5cd9431695f75a2a7f8e1872" to="390d561c65144af185fae26e74387a03" to-iid="b21d3b102ed3445587404009ab5c6f06" />
+          </item>
+          <item id="66b64849fd60481fb1aab608559715b8" iid="e6090e6399704f0eb1de877dcab3143a" creation-date="06/23/2023 16:47:48" order-index="15" type="entity">
+            <layout ax="470" ay="88" awidth="120" aheight="70" x="470" y="88" width="120" height="70" />
+          </item>
+          <item id="9a01a22f52dc48bcbe010edee054f41d" iid="c34d8fc963174d9eb0ab7e644612f0ce" creation-date="06/23/2023 16:47:48" order-index="16" type="relation">
+            <layout multiplicity-position="10,-10" line-style="oblique" lock-start-point="true" lock-to-fields="false" auto-path="" x1="392" y1="123" x2="470" y2="123" start-border-pos="0.375" end-border-pos="0.875" start-local-pos="35" name-position="0,20">
+              <points>
+                <point x="392" y="123" />
+                <point x="470" y="123" />
+              </points>
+            </layout>
+            <relation from="390d561c65144af185fae26e74387a03" from-iid="b21d3b102ed3445587404009ab5c6f06" to="66b64849fd60481fb1aab608559715b8" to-iid="e6090e6399704f0eb1de877dcab3143a" />
+          </item>
+          <item id="7baba6456b244a108da811bc6e902439" iid="6f0a3dd3d84a4550b0be0424625f5e6e" creation-date="06/23/2023 16:48:35" order-index="18" type="relation">
+            <layout multiplicity-position="2,-12" line-style="oblique" lock-to-fields="false" auto-path="" x1="590" y1="123" x2="676" y2="123" start-border-pos="0.375" end-border-pos="0.875" end-local-pos="35" name-position="0,20">
+              <points>
+                <point x="590" y="123" />
+                <point x="676" y="123" />
+              </points>
+            </layout>
+            <relation from="66b64849fd60481fb1aab608559715b8" from-iid="e6090e6399704f0eb1de877dcab3143a" to="e2899491241e493587b5dc0899a867de" to-iid="150a4b9fad304d35b9e1863e6139fabd" />
+          </item>
+          <item id="e2899491241e493587b5dc0899a867de" iid="150a4b9fad304d35b9e1863e6139fabd" creation-date="06/23/2023 16:48:42" order-index="19" type="entity">
+            <layout ax="676" ay="88" awidth="120" aheight="70" x="676" y="88" width="120" height="70" />
+          </item>
+          <item id="5136811c9c4f40cd97950159c6172523" iid="e2a5b84716f54a3a889b0a9f69725468" creation-date="06/23/2023 16:50:48" order-index="20" type="entity">
+            <layout ax="676" ay="223" awidth="120" aheight="70" x="673" y="225" width="120" height="70" />
+          </item>
+          <item id="e2bdd302b51d44f68b73885be5496786" iid="abdc9a14d7bf4d2fb6238704d43ce45f" creation-date="06/23/2023 16:50:54" order-index="21" type="relation">
+            <layout multiplicity-position="10,-10" line-style="oblique" lock-to-fields="false" auto-path="" x1="736" y1="158" x2="736" y2="223" start-border-pos="0.625" end-border-pos="0.125" name-position="0,20">
+              <points>
+                <point x="736" y="158" />
+                <point x="736" y="223" />
+              </points>
+            </layout>
+            <relation from="e2899491241e493587b5dc0899a867de" from-iid="150a4b9fad304d35b9e1863e6139fabd" to="5136811c9c4f40cd97950159c6172523" to-iid="e2a5b84716f54a3a889b0a9f69725468" />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+</sim-project>

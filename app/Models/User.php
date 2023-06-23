@@ -20,7 +20,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
+        'role',
+        'superior',
+        'subordinates',
     ];
 
     /**
@@ -39,7 +43,26 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function superior()
+    {
+        return $this->hasOne(User::class, 'user_id', 'superior');
+    }
+
+    public function subordinates()
+    {
+        return $this->hasMany(User::class, 'user_id', 'subordinates');
+    }
+
+    public function approval()
+    {
+        return $this->belongsTo(Approval::class, 'user_id', 'approved_by');
+    }
+
+    public function processLog()
+    {
+        return $this->hasMany(ProcessLog::class);
+    }
 }
