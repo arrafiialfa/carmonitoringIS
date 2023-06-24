@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('role');
             $table->string('superior')->nullable();
-            $table->string('subordinates')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

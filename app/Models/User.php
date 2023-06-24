@@ -24,7 +24,6 @@ class User extends Authenticatable
         'password',
         'role',
         'superior',
-        'subordinates',
     ];
 
     /**
@@ -48,12 +47,12 @@ class User extends Authenticatable
 
     public function superior()
     {
-        return $this->hasOne(User::class, 'id', 'superior');
+        return $this->belongsTo(User::class, 'id', 'superior');
     }
 
     public function subordinates()
     {
-        return $this->hasMany(User::class, 'id', 'subordinates');
+        return $this->hasMany(User::class, 'superior', 'id');
     }
 
     //many to many relationship
