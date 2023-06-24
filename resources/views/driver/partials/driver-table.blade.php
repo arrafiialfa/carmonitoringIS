@@ -22,7 +22,7 @@
                         $i++;
                     @endphp
                     <tr>
-                        <td>{{ i }}</td>
+                        <td>{{ $i }}</td>
                         <td>{{ $driver->name }}</td>
                         <td>{{ $driver->age }}</td>
                         <td>{{ $driver->sex }}</td>

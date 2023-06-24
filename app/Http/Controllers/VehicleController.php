@@ -24,15 +24,12 @@ class VehicleController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'plate_number' => ['required', 'string', 'max:255', 'unique:' . Vehicle::class],
             'type' => ['required', 'string', 'max:255',],
-            'service_schedule' => ['date'],
-            'fuel_consumptions' => ['double'],
         ]);
 
         Vehicle::create([
             'name' => $request->name,
             'plate_number' => $request->plate_number,
             'type' => $request->type,
-            'service_schedule' => $request->service_schedule,
         ]);
 
         return Redirect::route('vehicle')->with('status', 'vehicle-added');

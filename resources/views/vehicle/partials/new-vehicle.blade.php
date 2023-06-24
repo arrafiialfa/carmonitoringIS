@@ -23,13 +23,6 @@
             <x-input-error :messages="$errors->get('type')" class="mt-2" />
         </div>
 
-        <div class="mt-3">
-            <x-input-label for="service_schedule" :value="__('Jadwal Servis')" />
-            <x-text-input id="service_schedule" class="block mt-1 w-full" type="date" min="0"
-                name="service_schedule" :value="old('service_schedule')" required autocomplete="service_schedule" />
-            <x-input-error :messages="$errors->get('service_schedule')" class="mt-2" />
-        </div>
-
         <!-- Submit Button -->
         <div class="flex items-center justify-end mt-4">
             <x-primary-button class="ml-4">

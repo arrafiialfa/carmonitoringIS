@@ -28,7 +28,7 @@
                         <td>{{ $vehicle->name }}</td>
                         <td>{{ $vehicle->plate_number }}</td>
                         <td>{{ $vehicle->type }}</td>
-                        <td>{{ $vehicle->service_schedule }}</td>
+                        <td>{{ $vehicle->last_serviced ?? '-' }}</td>
                         <td>Rp. {{ $vehicle->fuel_consumptions ?? 0 }}</td>
                     </tr>
                 @endforeach
