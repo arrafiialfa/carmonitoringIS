@@ -23,9 +23,10 @@
                                                 <option value="{{ $vehicle->id }}">{{ $vehicle->name }}</option>
                                             @endforeach
                                         </select>
-                                        <div class="text-blue-700 text-2xl font-bold cursor-pointer">
+                                        <x-nav-link :href="route('vehicle')" :active="request()->routeIs('vehicle')"
+                                            class="text-blue-700 text-2xl font-bold no-underline">
                                             +
-                                        </div>
+                                        </x-nav-link>
                                     </div>
                                     <x-input-error :messages="$errors->get('vehicle')" class="mt-2" />
                                 </div>
@@ -42,9 +43,10 @@
                                                     <option value="{{ $driver->id }}">{{ $driver->name }}</option>
                                                 @endforeach
                                             </select>
-                                            <div class="text-blue-700 text-2xl font-bold cursor-pointer">
+                                            <x-nav-link :href="route('driver')" :active="request()->routeIs('driver')"
+                                                class="text-blue-700 text-2xl font-bold no-underline">
                                                 +
-                                            </div>
+                                            </x-nav-link>
                                         </div>
                                         <x-input-error :messages="$errors->get('driver')" class="mt-2" />
                                     </div>
