@@ -4,6 +4,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,10 +56,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/vehicle', [DriverController::class, 'create'])->name('vehicle');
-    Route::patch('/vehicle', [DriverController::class, 'edit'])->name('vehicle.edit');
-    Route::post('/vehicle', [DriverController::class, 'store'])->name('vehicle.store');
-    Route::delete('/vehicle', [DriverController::class, 'destroy'])->name('vehicle.delete');
+    Route::get('/vehicle', [VehicleController::class, 'create'])->name('vehicle');
+    Route::patch('/vehicle', [VehicleController::class, 'edit'])->name('vehicle.edit');
+    Route::post('/vehicle', [VehicleController::class, 'store'])->name('vehicle.store');
+    Route::delete('/vehicle', [VehicleController::class, 'destroy'])->name('vehicle.delete');
 });
 
 
