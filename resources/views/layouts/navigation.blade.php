@@ -26,6 +26,12 @@
                         {{ __('Daftar Supir') }}
                     </x-nav-link>
                 </div>
+                {{-- only if user is manager --}}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('subordinates')" :active="request()->routeIs('subordinates')">
+                        {{ __('Tambah Bawahan') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -93,6 +99,10 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('driver')" :active="request()->routeIs('driver')">
                 {{ __('Daftar Supir') }}
+            </x-responsive-nav-link>
+            {{-- only if user is manager --}}
+            <x-responsive-nav-link :href="route('subordinates')" :active="request()->routeIs('subordinates')">
+                {{ __('Tambah Bawahan') }}
             </x-responsive-nav-link>
         </div>
 
