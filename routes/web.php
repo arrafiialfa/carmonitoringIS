@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::post('/dashboard', function () {
+    Route::post('/export-to-excel', function () {
         return "hello export";
     })->name('export-to-excel');
 });
@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'create'])->name('dashboard');
+    Route::post('/dashboard', [DashboardController::class, 'store'])->name('dashboard.store');
 });
 
 
@@ -38,13 +39,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/booking', [BookingController::class, 'edit'])->name('booking.edit');
-    Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
-    Route::delete('/booking', [BookingController::class, 'destroy'])->name('booking.delete');
 });
 
 

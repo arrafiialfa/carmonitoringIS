@@ -20,7 +20,6 @@ class Vehicle extends Model
 
     public function booking()
     {
-        return $this->belongsToMany(User::class, 'approvals');
-        //return $this->belongsTo(Booking::class,'local_key','foreign_key')
+        return $this->hasOne(Booking::class);
     }
 }

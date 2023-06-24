@@ -14,50 +14,29 @@ use App\Models\User;
 
 class BookingController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): View
+    public function store(Request $request): RedirectResponse
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
-    }
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
-    }
-
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
+        $request->validate([
+            'vehicle_id' => ['required', 'string'],
+            'driver_id' => ['required', 'string'],
+            'bookedBy' => ['required', 'string',],
+            'scheduled_date' => ['required', 'date'],
+            'returned_date' => ['required', 'date'],
         ]);
 
-        $user = $request->user();
 
-        Auth::logout();
+        $booking = Booking::create([
+            'vehicle_id' => $request->vehicle_id,
+            'driver_id' => $request->driver_id,
+            'bookedBy' => $request->bookedBy,
+            'scheduled_date' => $request->scheduled_date,
+            'returned_date' => $request->returned_date,
+            'status' => 'Menunggu Persetujuan'
+        ]);
 
-        $user->delete();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        return Redirect::route('dashboard')->with('status', 'booking-added');
     }
 }

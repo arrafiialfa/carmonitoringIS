@@ -11,6 +11,7 @@
                 <th>Pemesan</th>
                 <th>Tanggal Peminjaman</th>
                 <th>Tanggal Pengembalian</th>
+                <th>Pemakaian Bensin (Rp)</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -21,14 +22,16 @@
             @foreach ($bookings as $booking)
                 @php
                     $i++;
+                    $bg = $i % 2 == 0 ? 'bg-slate-200' : '';
                 @endphp
-                <tr>
-                    <td>{{ i }}</td>
-                    <td>{{ $booking->vehicle }}</td>
-                    <td>{{ $booking->driver }}</td>
+                <tr class="text-center {{ $bg }}">
+                    <td>{{ $i }}</td>
+                    <td>{{ $booking->vehicle->name }}</td>
+                    <td>{{ $booking->driver->name }}</td>
                     <td>{{ $booking->bookedBy }}</td>
                     <td>{{ $booking->scheduled_date }}</td>
                     <td>{{ $booking->returned_date }}</td>
+                    <td>Rp. {{ $booking->fuel_consumptions ?? '-' }}</td>
                     <td>{{ $booking->status }}</td>
                 </tr>
             @endforeach

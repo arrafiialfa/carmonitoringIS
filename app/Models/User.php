@@ -48,12 +48,12 @@ class User extends Authenticatable
 
     public function superior()
     {
-        return $this->hasOne(User::class, 'user_id', 'superior');
+        return $this->hasOne(User::class, 'id', 'superior');
     }
 
     public function subordinates()
     {
-        return $this->hasMany(User::class, 'user_id', 'subordinates');
+        return $this->hasMany(User::class, 'id', 'subordinates');
     }
 
     //many to many relationship

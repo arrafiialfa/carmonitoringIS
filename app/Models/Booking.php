@@ -21,13 +21,12 @@ class Booking extends Model
 
     public function vehicle()
     {
-        return $this->hasOne(Vehicle::class);
-        //hasOne(model,foreignKey,localKey)
+        return $this->belongsTo(Vehicle::class);
     }
 
     public function driver()
     {
-        return $this->hasOne(Driver::class);
+        return $this->belongsTo(Driver::class);
     }
 
     //many to many relationship
