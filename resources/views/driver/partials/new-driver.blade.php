@@ -22,8 +22,8 @@
                 <select name="sex" :value="old('sex')"
                     class='border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full'>
                     <option value="">Pilih Jenis Kelamin</option>
-                    <option value="male">Laki - Laki</option>
-                    <option value="female">Perempuan</option>
+                    <option value="Laki - Laki">Laki - Laki</option>
+                    <option value="Perempuan">Perempuan</option>
                 </select>
             </div>
             <x-input-error :messages="$errors->get('vehicle')" class="mt-2" />

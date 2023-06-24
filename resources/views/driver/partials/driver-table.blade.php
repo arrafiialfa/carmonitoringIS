@@ -20,8 +20,9 @@
                 @foreach ($drivers as $driver)
                     @php
                         $i++;
+                        $bg = $i % 2 == 0 ? 'bg-slate-200' : '';
                     @endphp
-                    <tr>
+                    <tr class="text-center {{ $bg }}">
                         <td>{{ $i }}</td>
                         <td>{{ $driver->name }}</td>
                         <td>{{ $driver->age }}</td>
