@@ -10,7 +10,6 @@ class Vehicle extends Model
     use HasFactory;
 
     protected $fillable = [
-        'fuel_consumptions',
         'service_schedule',
         'last_serviced',
         'type',

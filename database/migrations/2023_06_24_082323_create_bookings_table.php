@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('bookedBy');
             $table->date('scheduled_date');
             $table->date('returned_date')->nullable();
+            $table->date('fuel_consumptions')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

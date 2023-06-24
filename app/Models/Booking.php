@@ -15,7 +15,8 @@ class Booking extends Model
         'bookedBy',
         'scheduled_date',
         'returned_date',
-        'status'
+        'status',
+        'fuel_consumptions',
     ];
 
 

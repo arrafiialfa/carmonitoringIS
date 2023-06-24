@@ -27,30 +27,4 @@ class DashboardController extends Controller
 
         return view('dashboard', compact('bookings', 'drivers', 'managers', 'vehicles'));
     }
-
-    public function store(Request $request): RedirectResponse
-    {
-
-        $request->validate([
-            'vehicle_id' => ['required', 'string'],
-            'driver_id' => ['required', 'string'],
-            'bookedBy' => ['required', 'string',],
-            'scheduled_date' => ['required', 'date'],
-            'returned_date' => ['required', 'date'],
-        ]);
-
-
-        $booking = Booking::create([
-            'vehicle_id' => $request->vehicle_id,
-            'driver_id' => $request->driver_id,
-            'bookedBy' => $request->bookedBy,
-            'scheduled_date' => $request->scheduled_date,
-            'returned_date' => $request->returned_date,
-            'status' => 'Menunggu Persetujuan'
-        ]);
-
-
-
-        return Redirect::route('dashboard')->with('status', 'booking-added');
-    }
 }

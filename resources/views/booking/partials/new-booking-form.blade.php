@@ -7,7 +7,7 @@
         <div class="panel panel-default my-2 p-6">
             <div class="panel-heading">Klik plus untuk menambah pilihan baru</div>
             <div class="panel-body text-left">
-                <form class="form-horizontal" method="POST" action="{{ route('dashboard.store') }}">
+                <form class="form-horizontal" method="POST" action="{{ route('booking.store') }}">
                     @csrf
                     <!-- Select Vehicle -->
                     <div class="mt-3">

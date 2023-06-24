@@ -16,8 +16,6 @@ class BookingController extends Controller
 {
     public function store(Request $request): RedirectResponse
     {
-
-
         $request->validate([
             'vehicle_id' => ['required', 'string'],
             'driver_id' => ['required', 'string'],
@@ -27,7 +25,7 @@ class BookingController extends Controller
         ]);
 
 
-        $booking = Booking::create([
+        Booking::create([
             'vehicle_id' => $request->vehicle_id,
             'driver_id' => $request->driver_id,
             'bookedBy' => $request->bookedBy,
@@ -35,7 +33,6 @@ class BookingController extends Controller
             'returned_date' => $request->returned_date,
             'status' => 'Menunggu Persetujuan'
         ]);
-
 
         return Redirect::route('dashboard')->with('status', 'booking-added');
     }

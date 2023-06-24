@@ -31,9 +31,11 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'create'])->name('dashboard');
-    Route::post('/dashboard', [DashboardController::class, 'store'])->name('dashboard.store');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
