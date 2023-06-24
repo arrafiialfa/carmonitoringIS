@@ -24,7 +24,7 @@
         </div>
 
         <div class="mt-3">
-            <x-input-label for="service_schedule" :value="__('Jam Terbang')" />
+            <x-input-label for="service_schedule" :value="__('Jadwal Servis')" />
             <x-text-input id="service_schedule" class="block mt-1 w-full" type="date" min="0"
                 name="service_schedule" :value="old('service_schedule')" required autocomplete="service_schedule" />
             <x-input-error :messages="$errors->get('service_schedule')" class="mt-2" />
@@ -33,8 +33,12 @@
         <!-- Submit Button -->
         <div class="flex items-center justify-end mt-4">
             <x-primary-button class="ml-4">
-                Tambah Vehicle Baru
+                TAMBAH KENDARAAN BARU
             </x-primary-button>
         </div>
+        @if (session('status') === 'vehicle-added')
+            <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
+                class="text-sm text-gray-600">{{ __('Kendaraan Berhasil Ditambahkan.') }}</p>
+        @endif
     </form>
 </section>

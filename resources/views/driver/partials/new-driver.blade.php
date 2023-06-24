@@ -42,5 +42,9 @@
                 Tambah Driver Baru
             </x-primary-button>
         </div>
+        @if (session('status') === 'driver-added')
+            <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
+                class="text-sm text-gray-600">{{ __('Kendaraan Berhasil Ditambahkan.') }}</p>
+        @endif
     </form>
 </section>

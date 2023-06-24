@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('plate_number');
-            $table->double('fuel_consumptions');
+            $table->double('fuel_consumptions')->nullable();
             $table->string('type');
-            $table->date('service_schedule');
+            $table->date('service_schedule')->nullable();
+            $table->date('last_serviced')->nullable();
             $table->timestamps();
         });
     }

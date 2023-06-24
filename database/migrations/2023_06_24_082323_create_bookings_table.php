@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('driver_id');
             $table->string('bookedBy');
             $table->date('scheduled_date');
-            $table->date('returned_date');
-            $table->string('status');
+            $table->date('returned_date')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

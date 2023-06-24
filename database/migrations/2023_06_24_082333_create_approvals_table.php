@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('booking_id');
             $table->string('approved_by');
-            $table->string('next_approval');
-            $table->string('note');
+            $table->string('next_approval')->nullable();
+            $table->string('note')->nullable();
             $table->timestamps();
         });
     }

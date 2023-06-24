@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('activity');
-            $table->string('message');
-            $table->string('error');
+            $table->string('message')->nullable();
+            $table->string('error')->nullable();
             $table->timestamps();
         });
     }
