@@ -1,37 +1,9 @@
 <section>
-    <section>
-        <table class="table-fixed w-full">
-            <caption class="caption-top my-2">
-                Daftar Pemesanan Kendaraan
-            </caption>
-            <thead class="">
-                <tr class="bg-slate-100 text-sm shadow-md rounded-md">
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Umur</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Jam Terbang</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php
-                    $i = 0;
-                @endphp
-                @foreach ($drivers as $driver)
-                    @php
-                        $i++;
-                        $bg = $i % 2 == 0 ? 'bg-slate-200' : '';
-                    @endphp
-                    <tr class="text-center {{ $bg }}">
-                        <td>{{ $i }}</td>
-                        <td>{{ $driver->name }}</td>
-                        <td>{{ $driver->age }}</td>
-                        <td>{{ $driver->sex }}</td>
-                        <td>{{ $driver->driving_hours }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </section>
+
+    @php
+        $columns = [['label' => 'Nama', 'key' => 'name'], ['key' => 'age', 'label' => 'Umur'], ['key' => 'sex', 'label' => 'Jenis Kelamin'], ['key' => 'driving_hours', 'label' => 'Jam Terbang']];
+    @endphp
+
+    <x-show-list :data="$drivers" :columns="$columns" :label="'Daftar Driver'" />
 
 </section>
