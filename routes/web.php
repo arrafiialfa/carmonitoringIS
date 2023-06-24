@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DriverController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +21,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::post('/dashboard', function () {
+        return "hello export";
+    })->name('export-to-excel');
+});
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'create'])->name('dashboard');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,4 +39,27 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+Route::middleware('auth')->group(function () {
+    Route::get('/booking', [BookingController::class, 'edit'])->name('booking.edit');
+    Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+    Route::delete('/booking', [BookingController::class, 'destroy'])->name('booking.delete');
+});
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/driver', [DriverController::class, 'create'])->name('driver');
+    Route::patch('/driver', [DriverController::class, 'edit'])->name('driver.edit');
+    Route::post('/driver', [DriverController::class, 'store'])->name('driver.store');
+    Route::delete('/driver', [DriverController::class, 'destroy'])->name('driver.delete');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/vehicle', [DriverController::class, 'create'])->name('vehicle');
+    Route::patch('/vehicle', [DriverController::class, 'edit'])->name('vehicle.edit');
+    Route::post('/vehicle', [DriverController::class, 'store'])->name('vehicle.store');
+    Route::delete('/vehicle', [DriverController::class, 'destroy'])->name('vehicle.delete');
+});
+
+
+require __DIR__ . '/auth.php';
