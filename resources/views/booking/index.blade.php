@@ -68,19 +68,62 @@
                                         <td>{{ $booking->created_at }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Permohonan Selanjutnya</th>
-                                        <td>{{ $approval->next_approval ?? '-' }}</td>
+                                        <th>Persetujuan Sebelumnya</th>
+                                        <td>{{ $approval->previousApproval ? "Persetujuan Dari {$approval->previousApproval->approvedBy->name}" : '-' }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Persetujuan Selanjutnya</th>
+                                        <td>{{ $approval->nextApproval ? "Persetujuan Dari {$approval->nextApproval->approvedBy->name}" : '-' }}
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
                             {{-- if manager id == approval->approved_by then has access to this --}}
-                            <div class="bg-white shadow-md py-2 my-2 flex justify-between px-6">
-                                <x-primary-button class="">
-                                    Approve
-                                </x-primary-button>
-                                <x-secondary-button class="">
-                                    Reject
-                                </x-secondary-button>
+
+                            @if ($user->id == $approval->approved_by && $approval->status !== 'Disetujui')
+                                <div class="bg-white shadow-md py-2 my-2 flex justify-between px-6">
+                                    <form class="form-horizontal" method="POST"
+                                        action="{{ route('approval.update') }}">
+                                        @csrf
+                                        @method('patch')
+                                        <div>
+                                            <input class="hidden" type="text" value={{ $booking->id }}
+                                                id="booking_id" name="booking_id">
+                                            <input class="hidden" type="text" value={{ $approval->id }}
+                                                id="approval_id" name="approval_id">
+                                            <input class="hidden" type="text" value={{ 'Disetujui' }}
+                                                id="status" name="status">
+                                        </div>
+                                        <x-primary-button class="">
+                                            Approve
+                                        </x-primary-button>
+                                    </form>
+                                    <form class="form-horizontal" method="POST"
+                                        action="{{ route('approval.update') }}">
+                                        @csrf
+                                        @method('patch')
+                                        <div>
+                                            <input class="hidden" type="text" value={{ $booking->id }}
+                                                id="booking_id" name="booking_id">
+                                            <input class="hidden" type="text" value={{ $approval->id }}
+                                                id="approval_id" name="approval_id">
+                                            <input class="hidden" type="text" value={{ 'Ditolak' }}
+                                                id="status" name="status">
+                                        </div>
+                                        <x-secondary-button class="">
+                                            Reject
+                                        </x-secondary-button>
+                                    </form>
+
+                                </div>
+                                <p class="text-xs">
+                                    after approving, the system will check if user has a superior. if he does, then
+                                    create another approval and assign the superior to the approval
+                                </p>
+                            @endif
+                            <div>
+                                <p class="text-xs italic">can only be approved by assigned manager</p>
                             </div>
                         @endforeach
 

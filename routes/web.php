@@ -7,6 +7,7 @@ use App\Http\Controllers\DriverController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubordinatesController;
+use App\Http\Controllers\ApprovalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/booking/{id}', [BookingController::class, 'create'])->name(('booking.edit'));
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 });
+
+
+Route::middleware('auth')->group(function () {
+    Route::patch('/approval', [ApprovalController::class, 'update'])->name(('approval.update'));
+});
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/subordinates', [SubordinatesController::class, 'create'])->name('subordinates');

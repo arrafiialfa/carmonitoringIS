@@ -23,7 +23,11 @@ class DashboardController extends Controller
         $bookings = Booking::with('vehicle')->get();
         $drivers = Driver::all();
         $vehicles = Vehicle::all();
-        $managers = User::where('role', 'manager')->get();
+        // $managers = User::with('has')
+
+        $managers = User::with('hasRole')->whereHas('hasRole', function ($query) {
+            $query->where('management_level', 1);
+        })->get();
 
         return view('dashboard', compact('bookings', 'drivers', 'managers', 'vehicles'));
     }

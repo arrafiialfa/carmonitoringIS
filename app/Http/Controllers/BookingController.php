@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Booking;
 use App\Models\Approval;
+use Illuminate\Support\Facades\Auth;
 
 
 class BookingController extends Controller
@@ -15,7 +16,8 @@ class BookingController extends Controller
     public function create($id)
     {
         $booking = Booking::findOrFail($id);
-        return view('booking.index', compact('booking'));
+        $user = Auth::user();
+        return view('booking.index', compact('booking', 'user'));
     }
 
     public function store(Request $request): RedirectResponse
