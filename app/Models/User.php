@@ -70,4 +70,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(ProcessLog::class);
     }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }
