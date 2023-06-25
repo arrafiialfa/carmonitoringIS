@@ -70,6 +70,7 @@ class ApprovalController extends Controller
         }
 
         $current_approval->save();
+        $current_booking->save();
 
         return redirect()->route('booking.edit', ['id' => $request->booking_id])->with('status', 'booking updated');
     }
