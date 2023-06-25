@@ -31,8 +31,13 @@ class Booking extends Model
     }
 
     //many to many relationship
-    public function user()
+    public function approvals()
     {
-        return $this->belongsToMany(User::class, 'approvals');
+        return $this->hasMany(Approval::class, 'booking_id', 'id');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'approvals', 'booking_id', 'approved_by');
     }
 }

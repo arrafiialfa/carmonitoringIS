@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('approved_by');
             $table->string('next_approval')->nullable();
             $table->string('note')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

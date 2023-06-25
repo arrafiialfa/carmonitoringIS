@@ -13,6 +13,7 @@
                 <th>Tanggal Pengembalian</th>
                 <th>Pemakaian Bensin (Rp)</th>
                 <th>Status</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +34,12 @@
                     <td>{{ $booking->returned_date }}</td>
                     <td>Rp. {{ $booking->fuel_consumptions ?? '-' }}</td>
                     <td>{{ $booking->status }}</td>
+                    <td>
+                        <a class="bg-blue-500 text-sm px-2 py-0.5 text-white rounded-md shadow-md hover:text-slate-300"
+                            href="{{ route('booking.edit', $booking->id) }}">
+                            Update
+                        </a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

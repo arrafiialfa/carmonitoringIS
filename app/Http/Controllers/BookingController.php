@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
 use App\Models\Booking;
-use App\Models\Driver;
-use App\Models\User;
+use App\Models\Approval;
+
 
 class BookingController extends Controller
 {
+
+    public function create($id)
+    {
+        $booking = Booking::findOrFail($id);
+        return view('booking.index', compact('booking'));
+    }
+
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -22,16 +26,24 @@ class BookingController extends Controller
             'bookedBy' => ['required', 'string',],
             'scheduled_date' => ['required', 'date'],
             'returned_date' => ['required', 'date'],
+            'manager_id' => ['required'],
         ]);
 
 
-        Booking::create([
+        $booking = Booking::create([
             'vehicle_id' => $request->vehicle_id,
             'driver_id' => $request->driver_id,
             'bookedBy' => $request->bookedBy,
             'scheduled_date' => $request->scheduled_date,
             'returned_date' => $request->returned_date,
             'status' => 'Menunggu Persetujuan'
+        ]);
+
+
+        Approval::create([
+            'booking_id' => $booking->id,
+            'approved_by' => $request->manager_id,
+            'status' => 'Menunggu Persetujuan',
         ]);
 
         return Redirect::route('dashboard')->with('status', 'booking-added');

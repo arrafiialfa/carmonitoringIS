@@ -13,6 +13,7 @@ class Approval extends Model
         'booking_id',
         'approved_by',
         'next_approval',
+        'status',
         'note',
     ];
 
@@ -20,6 +21,21 @@ class Approval extends Model
 
     public function nextApproval()
     {
-        return $this->hasOne(Approval::class, 'approval_id', 'next_approval');
+        return $this->belongsTo(Approval::class, 'id', 'next_approval');
+    }
+
+    public function previousApproval()
+    {
+        return $this->hasOne(Approval::class, 'next_approval', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id', 'approved_by');
+    }
+
+    public function booking()
+    {
+        return $this->belongsTo(Booking::class, 'id', 'booking_id');
     }
 }

@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/booking/{id}', [BookingController::class, 'create'])->name(('booking.edit'));
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 });
 
@@ -47,8 +48,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-
 
 
 Route::middleware('auth')->group(function () {

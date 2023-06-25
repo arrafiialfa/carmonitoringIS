@@ -74,7 +74,7 @@
                         <x-input-error :messages="$errors->get('returned_date')" class="mt-2" />
                     </div>
 
-                    <!-- Select Driver -->
+                    <!-- Select Approving Manager -->
                     <div class="mt-3">
                         <div class="grow">
                             <x-input-label for="manager_id" :value="__('Pemberi Persetujuan')" />
