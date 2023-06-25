@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('management_level');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
