@@ -1,7 +1,7 @@
 <section>
     @php
-        $columns = [['label' => 'Nama', 'key' => 'name'], ['key' => 'age', 'label' => 'Umur'], ['key' => 'sex', 'label' => 'Jenis Kelamin'], ['key' => 'driving_hours', 'label' => 'Jam Terbang']];
+        $columns = [['label' => 'Nama', 'key' => 'name'], ['key' => 'email', 'label' => 'Email'], ['key' => 'role', 'label' => 'Role']];
     @endphp
 
-    <x-show-list :data="$subordinates" :columns="$columns" :label="'Daftar Bawahan'" />
+    <x-show-list :data="$user->hasSubordinates" :columns="$columns" :label="'Daftar Bawahan'" />
 </section>

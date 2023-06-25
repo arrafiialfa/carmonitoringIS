@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/subordinates', [SubordinatesController::class, 'create'])->name('subordinates');
-    Route::post('/subordinates', [SubordinatesController::class, 'store'])->name('subordinates.store');
+    Route::patch('/subordinates', [SubordinatesController::class, 'update'])->name('subordinates.update');
 });
 
 Route::middleware('auth')->group(function () {

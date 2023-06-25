@@ -50,12 +50,12 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role', 'id');
     }
 
-    public function superior()
+    public function hasSuperior()
     {
-        return $this->belongsTo(User::class, 'id', 'superior');
+        return $this->belongsTo(User::class, 'superior', 'id');
     }
 
-    public function subordinates()
+    public function hasSubordinates()
     {
         return $this->hasMany(User::class, 'superior', 'id');
     }
