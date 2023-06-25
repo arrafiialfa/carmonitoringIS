@@ -6,14 +6,18 @@
             "use": "@vercel/static-build"
         },
         {
-            "src": "server.php",
+            "src": "/.*",
             "use": "@vercel/php"
         }
     ],
     "routes": [
         {
-            "src": "/(.*)",
-            "dest": "server.php"
+            "src": "/(.*\\.php)",
+            "dest": "/$1"
+        },
+        {
+            "src": "/.*",
+            "dest": "/index.php"
         }
     ]
 }
