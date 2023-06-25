@@ -45,6 +45,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function hasRole()
+    {
+        return $this->belongsTo(Role::class, 'role', 'id');
+    }
+
     public function superior()
     {
         return $this->belongsTo(User::class, 'id', 'superior');
@@ -69,10 +74,5 @@ class User extends Authenticatable
     public function processLogs()
     {
         return $this->hasMany(ProcessLog::class);
-    }
-
-    public function role()
-    {
-        return $this->belongsTo(Role::class, 'role', 'id');
     }
 }
