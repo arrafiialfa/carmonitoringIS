@@ -31,11 +31,11 @@ class Approval extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id', 'approved_by');
+        return $this->belongsTo(User::class, 'approved_by', 'id');
     }
 
     public function booking()
     {
-        return $this->belongsTo(Booking::class, 'id', 'booking_id');
+        return $this->belongsTo(Booking::class, 'booking_id', 'id');
     }
 }
