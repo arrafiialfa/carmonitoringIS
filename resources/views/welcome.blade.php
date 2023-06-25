@@ -18,7 +18,7 @@
     <div
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+            <div class="sm:fixed sm:top-0 md:top-5 md:right-3 sm:right-0 p-6 text-right z-10 bg-gray-900 rounded-md">
                 @auth
                     <a href="{{ url('/dashboard') }}"
                         class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
@@ -80,7 +80,70 @@
 
                 </div>
             </div>
-            <div class="mt-8">
+            <div class="mt-4">
+                <div class="">
+                    <div
+                        class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline
+                         focus:outline-2 focus:outline-red-500">
+                        <div>
+                            </h2>
+                            <table class="table-fixed w-full">
+                                <caption class="caption-top my-2 text-white">
+                                    Daftar User
+                                </caption>
+                                <span class="text-white text-sm">User telah ada didalam sqlite database</span>
+                                <thead class="">
+                                    <tr class="bg-slate-400 rounded-md text-sm shadow-md ">
+                                        <th>No</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
+                                        <th>Role</th>
+                                        <th>Deskripsi</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-justify text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                    <tr class="text-center">
+                                        <td>1</td>
+                                        <td>admin</td>
+                                        <td>123123123</td>
+                                        <td>Admin</td>
+                                        <td>Admin yang bertugas untuk memasukkan dan mengedit data di dalam aplikasi
+                                        </td>
+                                    </tr>
+                                    <tr class="text-center bg-slate-300 text-slate-800">
+                                        <td>2</td>
+                                        <td>manager1</td>
+                                        <td>123123123</td>
+                                        <td>First-Line Manager</td>
+                                        <td>Manager yang bertugas memberi persetujuan awal terhadap semua pemesanan
+                                            kendaraan</td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>3</td>
+                                        <td>manager2</td>
+                                        <td>123123123</td>
+                                        <td>Mid-Level Manager</td>
+                                        <td>Manager yang merupakan atasan dari First-Line Manager, Manager ini akan
+                                            menyetujui pemesanan yang telah disetujui oleh manager dibawahnya</td>
+                                    </tr>
+                                    <tr class="text-center bg-slate-300 text-slate-800">
+                                        <td>4</td>
+                                        <td>manager3</td>
+                                        <td>123123123</td>
+                                        <td>Top-Level Manager</td>
+                                        <td>Manager yang merupakan atasan dari Mid-Line Manager, Manager ini akan
+                                            menyetujui pemesanan yang telah disetujui oleh manager dibawahnya</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt-4">
                 <div class="">
                     <div
                         class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline
@@ -99,7 +162,47 @@
                                 Cara Penggunaan
                             </h2>
 
-                            Cara Penggunaan
+
+                            <div
+                                class="max-w-xl mx-auto p-4 text-justify mt-4 text-gray-500 dark:text-gray-400 leading-relaxed">
+                                <ol class="list-decimal list-inside mb-4">
+                                    <li>Register jika ingin menambahkan user baru</li>
+                                    <li>Login dengan user Admin</li>
+                                    <li>Pada halaman dashboard, admin dapat menambahkan pemesanan baru, klik tombol
+                                        pemesanan baru</li>
+                                    <li>Masukkan isian, jika ingin menambahkan kendaraan atau supir dapat menekan tombol
+                                        plus disamping kolom isian</li>
+                                    <li>Klik tombol buat pemesanan baru</li>
+                                    <li>Pemesanan baru akan muncul di tabel pemesanan</li>
+                                </ol>
+
+                                <div class="font-bold">Update Pemesanan</div>
+                                <ol class="list-decimal list-inside mb-4">
+                                    <li>Klik update pada list di tabel pemesanan</li>
+                                    <li>Disitu akan terlihat detail pemesanan dan persetujuan yang sedang berlangsung
+                                    </li>
+                                    <li>Login ke akun yang bersangkutan untuk menyetujui pemesanan. Contoh: persetujuan
+                                        oleh: manager2 maka harus login sebagai manager2</li>
+                                    <li>Klik tombol approve untuk menyetujui pemesanan atau reject untuk menolak
+                                        pemesanan</li>
+                                    <li>Jika manager menerima pemesanan maka sistem akan mengecek apakah manager
+                                        tersebut punya atasan yang terdefinisikan pada database</li>
+                                    <li>Jika iya, maka sistem akan membuat persetujuan baru yang akan diarahkan pada
+                                        atasan manager tersebut</li>
+                                </ol>
+
+                                <div class="font-bold">Menambahkan Bawahan</div>
+                                <p>Manager dapat menambahkan bawahan didalam sistem</p>
+                                <ol class="list-decimal list-inside">
+                                    <li>Klik tombol tambah bawahan, paling atas pojok kanan</li>
+                                    <li>Lihat tabel user dibawah, jika daftar user ada maka dapat menekan tombol tambah
+                                        pada user yang ingin dijadikan bawahan</li>
+                                    <span class="block mb-2">Bawahan yang dapat dijadikan user adalah bawahan langsung
+                                        yang memiliki tingkat managerial 1 tingkat dibawah manager tersebut</span>
+                                    <span class="block">Admin memiliki managerial level 0 sehingga tidak dapat menambah
+                                        bawahan</span>
+                                </ol>
+                            </div>
 
 
 
@@ -110,7 +213,7 @@
                 </div>
             </div>
 
-            <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
+            <div class="flex justify-center mt-4 px-0 sm:items-center sm:justify-between">
                 <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
                     Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                 </div>
