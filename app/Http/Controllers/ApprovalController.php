@@ -47,7 +47,6 @@ class ApprovalController extends Controller
 
         $current_approval = Approval::find($request->approval_id);
         $current_approval->status = $request->status;
-        $current_approval->save();
 
         $current_booking = Booking::findOrFail($request->booking_id);
         $current_booking->status = "{$request->status} Oleh {$user}";
@@ -69,6 +68,8 @@ class ApprovalController extends Controller
         } else {
             $current_booking->status = "Persetujuan Selesai";
         }
+
+        $current_approval->save();
 
         return redirect()->route('booking.edit', ['id' => $request->booking_id])->with('status', 'booking updated');
     }

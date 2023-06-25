@@ -21,7 +21,7 @@ class Approval extends Model
 
     public function nextApproval()
     {
-        return $this->belongsTo(Approval::class, 'id', 'next_approval');
+        return $this->belongsTo(Approval::class, 'next_approval', 'id');
     }
 
     public function previousApproval()

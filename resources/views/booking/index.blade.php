@@ -69,12 +69,12 @@
                                     </tr>
                                     <tr>
                                         <th>Persetujuan Sebelumnya</th>
-                                        <td>{{ $approval->previousApproval ? "Persetujuan Dari {$approval->previousApproval->approvedBy->name}" : '-' }}
+                                        <td>{{ $approval->previousApproval ? "Persetujuan Dari {$approval->previousApproval->approved_by}" : '-' }}
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Persetujuan Selanjutnya</th>
-                                        <td>{{ $approval->nextApproval ? "Persetujuan Dari {$approval->nextApproval->approvedBy->name}" : '-' }}
+                                        <td>{{ $approval->nextApproval ? "Persetujuan Dari {$approval->nextApproval->approved_by}" : '-' }}
                                         </td>
                                     </tr>
                                 </table>
