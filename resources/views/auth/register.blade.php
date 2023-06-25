@@ -30,9 +30,10 @@
             <x-input-label for="role" :value="__('Role')" />
             <select name="role" :value="old('role')"
                 class='border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full'>
-                <option value="">Choose Role</option>
-                <option value="admin">Admin</option>
-                <option value="manager">Manager</option>
+                <option value="">Choose a Role</option>
+                @foreach ($roles as $role)
+                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                @endforeach
             </select>
             <x-input-error :messages="$errors->get('role')" class="mt-2" />
         </div>
