@@ -17,7 +17,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="px-6 py-2 text-gray-900">
                     <div class="text-right text-sm m-2">
-                        @include('booking.partials.new-booking-form')
+                        @if ($user->hasRole->management_level == 0)
+                            @include('booking.partials.new-booking-form')
+                        @endif
                     </div>
                     @include('booking.partials.booking-list')
                     <div class="text-right my-4 mx-2">
