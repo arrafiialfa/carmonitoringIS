@@ -42,6 +42,14 @@ class RoleSeeder extends Seeder
                 'updated_at' => $currentTimestamp,
             ],
             [
+                'id' => '5',
+                'name' => 'Middle-Line Manager2',
+                'management_level' => 2,
+                'description' => null,
+                'created_at' => $currentTimestamp,
+                'updated_at' => $currentTimestamp,
+            ],
+            [
                 'id' => '4',
                 'name' => 'Top-Level Manager',
                 'management_level' => 3,
